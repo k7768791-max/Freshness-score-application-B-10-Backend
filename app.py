@@ -18,7 +18,13 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "stable_dev_secret_key_123!")
-CORS(app, supports_credentials=True, origins=["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"])
+CORS(app, supports_credentials=True, origins=[
+    "http://localhost:5173", 
+    "http://localhost:5174", 
+    "http://localhost:3000",
+    "https://freshness-score-application-b-10.vercel.app"
+])
+
 
 # ── Razorpay Configuration ──
 RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID", "rzp_test_SXlDqkxIKFuAw8")
